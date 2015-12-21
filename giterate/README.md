@@ -7,7 +7,13 @@ Works
 
 ### Use ###
 ```
-# 1) Set alias (will fix proper bin link later...)
+
+# 1) Make sure you have installed nodejs and npm
+
+# 2) Install dependencies by typein 'npm install' in root folder
+-> npm install 
+
+# 3) Set alias (will fix proper bin link later...)
 
 -> alias giterate="node giterate.js"
 
