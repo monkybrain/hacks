@@ -88,6 +88,6 @@ if command is 'commit'
 
 # pseudoscript: bringing magic to the people..."
 
-# missions statement..."
+# = missions statement
 
-# unix commands look like old greek or something. i have to acknowledge my love for them
+# unix commands look like old fashioned spells. Basically pseudoscript allows you to write your own grimoire

@@ -1,0 +1,3 @@
+### pseudo - the new sudo ###
+pseudo sounds like "sudo" - get it...
+

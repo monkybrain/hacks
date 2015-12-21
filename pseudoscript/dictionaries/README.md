@@ -6,6 +6,7 @@
 * Cast spells!
 * Make sure you can say it first
 * Functions as verbs
+* the JavaScript family is well suited for this project since it accepts UTF-8 source code (like Swedish å, ä, ö)
 
 ### Natural language ###
 ```
@@ -42,12 +43,12 @@ article:
   the
 
 # The following sentence
-if the room is dark then turn on the light and report "Day's over mate, get some rest" to the owner
+if the room is dark then turn on the light and report "Day's over mate, get some rest" to the user
 
 # should produce something like
 if room.dark
   set(light, on)
-  report("Day's over mate, get som rest", owner)
+  report("Day's over mate, get som rest", user)
   
 # Statements seperated by commas
 if the room is dark then turn on the light, turn off the TV and report "Bed time!"
@@ -58,7 +59,6 @@ if room.dark
   report("Bed time!")
   
 (START BY IMPLEMENTING SET/UNSET!)
-
 
 # Contextual scopes
 scope:
@@ -93,11 +93,7 @@ nouns:
   rum:
     state:
       mörkt: yes
-    genus: t
-adverb:
-  delay:
-    prep: om
-    
+    genus: t    
     
 om rummet är mörkt så tänd lampan och rapportera "Snart läggdags!" (om tio minuter)
 ```

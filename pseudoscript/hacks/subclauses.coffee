@@ -12,7 +12,7 @@ type = (object) ->
     return 'relative'
 
 
-# Euro instead of dollar? € = 'fisk'; console.log €
+# Euro instead of dollar sign? € = 'fisk'; console.log €
 
 # Basic functions
 class Arithmetic # TODO: CREATE THIS CLASS
