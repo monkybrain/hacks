@@ -163,6 +163,7 @@
         return;
       }
       config.state = args[1];
+      fs.writeFileSync;
       return log("deamon: state set to \"" + config.state + "\"");
     };
 

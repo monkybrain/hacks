@@ -143,6 +143,8 @@ class Flow
       error "\ndaemon: empty inside, are we?\n"
       return
     config.state = args[1]
+    # Write to file
+    fs.writeFileSync
     log "deamon: state set to \"#{config.state}\""
 
 
