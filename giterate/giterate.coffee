@@ -127,7 +127,7 @@ class Flow
           # error stderr
           # log stdout
 
-  @start: () ->
+  @daemon: () ->
     log "\nDaemon has been summoned..."
     log "\nUse ctrl-c to dismiss him\n"
     Flow.runOnce()
