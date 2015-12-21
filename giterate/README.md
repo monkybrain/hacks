@@ -21,9 +21,13 @@ Works
 
   -> alias giterate="node giterate.js"
   
-# Set interval (e.g. 5 min)
+# Set interval (in minutes)
   
   -> giterate interval 5
+  
+# Set state (inside single or double quotes"
+  
+  -> giterate state "I'm on a roll"
 
 # Type 'giterate' to commit, pull and push to remote ONCE...
 
