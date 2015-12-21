@@ -144,7 +144,7 @@ class Flow
       return
     config.state = args[1]
     # Write to file
-    fs.writeFileSync
+    fs.writeFileSync 'giterate.json', JSON.stringify(config)
     log "deamon: state set to \"#{config.state}\""
 
 
