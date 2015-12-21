@@ -139,6 +139,7 @@ class Flow
     , min2ms(config.interval)
 
   @state: () ->
+    log "state"
     state = args[1]
     log state
 

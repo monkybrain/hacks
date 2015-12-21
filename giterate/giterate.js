@@ -159,6 +159,7 @@
 
     Flow.state = function() {
       var state;
+      log("state");
       state = args[1];
       return log(state);
     };
