@@ -51,15 +51,5 @@ Works
 
 ### Works how? ###
 Finds all subdirectories  with the file `.giterate`. Commits, pulls and pushes each project. You're now git synced.
-
-### Coming soon ###
-
-Set state with command
-```
-# Set state
-giterate state "I'm on a roll..."
-
-# Iterate
-giterate
 ```
 
