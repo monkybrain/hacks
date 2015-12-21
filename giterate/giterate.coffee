@@ -127,6 +127,7 @@ class Flow
           # error stderr
           # log stdout
 
+  # Summon him for real
   @daemon: () ->
     log "\ndaemon: You summoned me?"
     log "\n(Use ctrl-c to dismiss him)\n"
