@@ -23,6 +23,8 @@ Human language more melodic than code and being able to modify the language itse
 * Implicit console.log? E.g. `take length of three, multiply by three and add four` =
 `console.log add(multiply(tree.length, 3), 4)`
 
+* Add words like forever and symbols such as ∞ (to show how relative they really are...)
+
 
 
 ### Business case (if any...) ###
