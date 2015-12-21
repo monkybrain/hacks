@@ -4,10 +4,12 @@ colors = require "colors"
 # TODO: Load from config file
 config =
   root: "~/Projects"
+  log: true
 
 # Gotta have these helpers...
 log = (output) ->
-  console.log output.toString().green
+  if config.log
+    console.log output.toString().green
 
 error = (error) ->
   console.error error.toString().red
@@ -15,7 +17,10 @@ error = (error) ->
 # Do you really think I have time to type these eight characters every other minute?
 h = "got here"
 
-# Introducing some *nix magic...
+
+# Introducing some (basic) *nix magic...
+
+### MAGIC ###
 class Magic
 
   @spells:
@@ -40,7 +45,9 @@ class Magic
   @perform: (ritual, callback) ->
     @cast ritual, callback
 
-# ...and some less magic parser code
+# ...and some parser code
+
+### PARSER ###
 class Parser
 
   @processPaths: (stdout) ->
@@ -52,9 +59,13 @@ class Parser
     paths.map (path) ->
       path = path.slice 0, path.lastIndexOf "/"
 
+### RUN ###
 Magic.cast Magic.spells.find, (err, stdout, stderr) ->
+
+  # Get paths
   paths = Parser.processPaths stdout
 
+  # Perform ritual for each path
   for path in paths
     ritual = Magic.combine [
       # cd into path
@@ -68,6 +79,5 @@ Magic.cast Magic.spells.find, (err, stdout, stderr) ->
       # git: push
       Magic.spells.git.push
     ]
-    log ritual
     Magic.perform ritual, (err, stdout, stderr) ->
       log stdout

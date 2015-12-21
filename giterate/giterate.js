@@ -7,11 +7,14 @@
   colors = require("colors");
 
   config = {
-    root: "~/Projects"
+    root: "~/Projects",
+    log: true
   };
 
   log = function(output) {
-    return console.log(output.toString().green);
+    if (config.log) {
+      return console.log(output.toString().green);
+    }
   };
 
   error = function(error) {
@@ -19,6 +22,9 @@
   };
 
   h = "got here";
+
+
+  /* MAGIC */
 
   Magic = (function() {
     function Magic() {}
@@ -56,6 +62,9 @@
 
   })();
 
+
+  /* PARSER */
+
   Parser = (function() {
     function Parser() {}
 
@@ -71,6 +80,9 @@
 
   })();
 
+
+  /* RUN */
+
   Magic.cast(Magic.spells.find, function(err, stdout, stderr) {
     var i, len, path, paths, results, ritual;
     paths = Parser.processPaths(stdout);
@@ -78,7 +90,6 @@
     for (i = 0, len = paths.length; i < len; i++) {
       path = paths[i];
       ritual = Magic.combine([Magic.spells.cd(path), Magic.spells.git.add, Magic.spells.git.commit("Still hacking away at giterate"), Magic.spells.git.pull, Magic.spells.git.push]);
-      log(ritual);
       results.push(Magic.perform(ritual, function(err, stdout, stderr) {
         return log(stdout);
       }));
