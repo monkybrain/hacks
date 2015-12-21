@@ -1,10 +1,10 @@
 exec = require("child_process").exec
 colors = require "colors"
+fs = require "fs"
+Promise = require "promise"
 
-# TODO: Load from config file
-config =
-  root: "~/Projects"
-  log: true
+# Config object
+config = {}
 
 # Gotta have these helpers...
 log = (output) ->
@@ -27,7 +27,8 @@ class Magic
   @spells:
     cd: (dir) ->
       "cd #{dir}"
-    find: "find #{config.root} -name .giterate -prune"
+    find: (root) ->
+      "find #{root} -name .giterate -prune"
     test: "ls -la"
     git:
       add: "git add ."
@@ -61,25 +62,55 @@ class Parser
       path = path.slice 0, path.lastIndexOf "/"
 
 ### RUN ###
-Magic.cast Magic.spells.find, (err, stdout, stderr) ->
 
-  # Get paths
-  paths = Parser.processPaths stdout
 
-  # Perform ritual for each path
-  for path in paths
-    ritual = Magic.combine [
-      # cd into path
-      Magic.spells.cd(path)
-      # git: add all files
-      Magic.spells.git.add
-      # git: commit (with or without message)
-      Magic.spells.git.commit "Still hacking away at giterate"
-      # git: pull
-      Magic.spells.git.pull
-      # git: push
-      Magic.spells.git.push
-    ]
-    Magic.perform ritual, (err, stdout, stderr) ->
-      error stderr
-      log stdout
+### Flow ###
+class Flow
+
+  @init: () ->
+    new Promise (resolve, reject) ->
+      try
+        data = fs.readFileSync 'giterate.json', 'utf8'
+      catch err
+        error "Cannot open giterate.json"
+        reject()
+
+      config = JSON.parse data
+      resolve()
+
+  # Run #
+  @run: () ->
+
+    # Cast first spell : find project folders #
+    Magic.cast Magic.spells.find(config.root), (err, stdout, stderr) ->
+
+      # Get paths
+      paths = Parser.processPaths stdout
+
+      # Create ritual
+      for path in paths
+        ritual = Magic.combine [
+          # cd into path
+          Magic.spells.cd(path)
+          # git: add all files
+          Magic.spells.git.add
+          # git: commit (with or without message)
+          Magic.spells.git.commit config.state
+          # git: pull
+          Magic.spells.git.pull
+          # git: push
+          Magic.spells.git.push
+        ]
+
+        # Perform ritual for each project
+        Magic.perform ritual, (err, stdout, stderr) ->
+          error stderr
+          log stdout
+
+# Init
+Flow.init().then(
+  # Run
+  () -> Flow.run()
+  # Error
+  () -> error "Aborted..."
+)
