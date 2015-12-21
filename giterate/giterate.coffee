@@ -1,7 +1,7 @@
 child = require "child_process"
 exec = child.exec
 spawn = child.spawn
-argv = require("yargs").argv
+args = require("yargs").argv._    # short hand for returning array of flagless arguments
 colors = require "colors"
 fs = require "fs"
 Promise = require "promise"
@@ -58,7 +58,16 @@ class Magic
 ### PARSER ###
 class Parser
 
-  @processPaths: (stdout) ->
+  @commands: (args) ->
+    # if no command -> run once
+    if args.length is 0
+      return 'run'
+    else
+      if args.length > 1
+        log "fisk"
+        return args[0] + args[1]
+
+  @paths: (stdout) ->
 
     # Split into array
     paths = stdout.split "\n"
@@ -83,6 +92,9 @@ class Flow
       # lay down a...
       marker()
 
+      # get command
+      log Parser.commands args
+
       resolve()
 
   # Run #
@@ -92,7 +104,7 @@ class Flow
     Magic.cast Magic.spells.find(config.root), (err, stdout, stderr) ->
 
       # Get paths
-      paths = Parser.processPaths stdout
+      paths = Parser.paths stdout
 
       # Create ritual
       for path in paths
