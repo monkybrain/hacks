@@ -103,7 +103,7 @@
 
     Parser.paths = function(stdout) {
       var paths;
-      paths = stdout.split("\n");
+      paths = stdout.trim().split("\n");
       return paths.map(function(path) {
         return path = path.slice(0, path.lastIndexOf("/"));
       });
@@ -146,13 +146,14 @@
       return Magic.cast(Magic.spells.find(config.root), function(err, stdout, stderr) {
         var i, len, path, paths, results, ritual;
         paths = Parser.paths(stdout);
-        console.log(paths);
-        return;
         results = [];
         for (i = 0, len = paths.length; i < len; i++) {
           path = paths[i];
           ritual = Magic.combine([Magic.spells.cd(path), Magic.spells.git.add, Magic.spells.git.commit(config.state), Magic.spells.git.pull, Magic.spells.git.push]);
-          results.push(Magic.perform(ritual, function(err, stdout, stderr) {}));
+          results.push(Magic.perform(ritual, function(err, stdout, stderr) {
+            error(stderr);
+            return log(stdout);
+          }));
         }
         return results;
       });

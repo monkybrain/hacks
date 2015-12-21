@@ -74,7 +74,7 @@ class Parser
   @paths: (stdout) ->
 
     # Split into array
-    paths = stdout.split "\n"
+    paths = stdout.trim().split "\n"
 
     # Strip '/.git'
     paths.map (path) ->
@@ -118,9 +118,6 @@ class Flow
       # Get paths
       paths = Parser.paths stdout
 
-      console.log paths
-      return
-
       # Create ritual
       for path in paths
         ritual = Magic.combine [
@@ -138,8 +135,8 @@ class Flow
 
         # Perform ritual for each project
         Magic.perform ritual, (err, stdout, stderr) ->
-          # error stderr
-          # log stdout
+          error stderr
+          log stdout
 
   @start: () ->
     Flow.running = true
