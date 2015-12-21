@@ -158,13 +158,12 @@
     };
 
     Flow.state = function() {
-      var state;
       if (args[1] == null) {
         error("\ndaemon: empty inside, are we?\n");
         return;
       }
-      state = args[1];
-      return log(state);
+      config.state = args[1];
+      return log("deamon: state set to \"" + config.state + "\"");
     };
 
     return Flow;

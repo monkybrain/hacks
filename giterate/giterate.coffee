@@ -142,8 +142,8 @@ class Flow
     if not args[1]?
       error "\ndaemon: empty inside, are we?\n"
       return
-    state = args[1]
-    log state
+    config.state = args[1]
+    log "deamon: state set to \"#{config.state}\""
 
 
 
