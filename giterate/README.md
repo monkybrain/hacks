@@ -34,8 +34,9 @@ Works
 Edit giterate.json
 ```
 {
-  "root":"~/Projects"			# Set root directory to find giterated projects
-  "log": false					# Enable/disable logging to console
+  "interval": 1,
+  "root":"~/Projects",			# Set root directory to find giterated projects
+  "log": true,					# Enable/disable logging to console
   "state":"I'm on a roll..."	# There will soon be a command to change this...
 }
 ```
