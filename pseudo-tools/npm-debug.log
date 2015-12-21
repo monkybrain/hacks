@@ -1,0 +1,50 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'link' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 verbose linkPkg /home/philip/Projects/hacks/pseudo-tools
+5 verbose link build target /usr/local/lib/node_modules/pseudo-tools
+6 verbose install where,what [ '/home/philip/Projects/hacks/pseudo-tools', [] ]
+7 verbose readDependencies using package.json deps
+8 verbose install where, deps [ '/home/philip/Projects/hacks/pseudo-tools',
+8 verbose install   [ 'colors', 'exec', 'shelljs', 'yargs' ] ]
+9 info preinstall pseudo-tools@0.0.1
+10 verbose readDependencies using package.json deps
+11 verbose already installed skipping shelljs@^0.5.3 /home/philip/Projects/hacks/pseudo-tools
+12 verbose already installed skipping colors@^1.1.2 /home/philip/Projects/hacks/pseudo-tools
+13 verbose already installed skipping exec@^0.2.1 /home/philip/Projects/hacks/pseudo-tools
+14 verbose already installed skipping yargs@^3.31.0 /home/philip/Projects/hacks/pseudo-tools
+15 silly resolved []
+16 info build /home/philip/Projects/hacks/pseudo-tools
+17 verbose linkStuff [ false, false, false, '/home/philip/Projects/hacks' ]
+18 info linkStuff pseudo-tools@0.0.1
+19 verbose linkBins pseudo-tools@0.0.1
+20 verbose linkMans pseudo-tools@0.0.1
+21 verbose rebuildBundles pseudo-tools@0.0.1
+22 verbose rebuildBundles [ '.bin', 'colors', 'exec', 'shelljs', 'yargs' ]
+23 info install pseudo-tools@0.0.1
+24 info postinstall pseudo-tools@0.0.1
+25 info prepublish pseudo-tools@0.0.1
+26 info build /usr/local/lib/node_modules/pseudo-tools
+27 verbose linkStuff [ true,
+27 verbose linkStuff   '/usr/local/lib/node_modules',
+27 verbose linkStuff   true,
+27 verbose linkStuff   '/usr/local/lib/node_modules' ]
+28 info linkStuff pseudo-tools@0.0.1
+29 verbose linkBins pseudo-tools@0.0.1
+30 verbose link bins [ { pseudo: 'node pseudo-tools' }, '/usr/local/bin', true ]
+31 verbose linkMans pseudo-tools@0.0.1
+32 error Error: ENOENT, chmod '/usr/local/lib/node_modules/pseudo-tools/node pseudo-tools'
+33 error If you need help, you may report this log at:
+33 error     <http://github.com/isaacs/npm/issues>
+33 error or email it to:
+33 error     <npm-@googlegroups.com>
+34 error System Linux 3.19.0-41-generic
+35 error command "/usr/bin/nodejs" "/usr/bin/npm" "link"
+36 error cwd /home/philip/Projects/hacks/pseudo-tools
+37 error node -v v0.10.25
+38 error npm -v 1.3.10
+39 error path /usr/local/lib/node_modules/pseudo-tools/node pseudo-tools
+40 error code ENOENT
+41 error errno 34
+42 verbose exit [ 34, true ]
