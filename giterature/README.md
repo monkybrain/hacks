@@ -1,6 +1,8 @@
 # giterature #
 
-for giterate authors or writers who need help becoming giterate
+for giterate authors or writers who need help becoming giterate (as in literate)
+
+Uses [giterate](https://github.com/monkybrain/giterate) to continually push updates to github.
 
 ### dogma ###
 
