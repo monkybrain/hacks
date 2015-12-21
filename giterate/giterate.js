@@ -146,6 +146,8 @@
       return Magic.cast(Magic.spells.find(config.root), function(err, stdout, stderr) {
         var i, len, path, paths, results, ritual;
         paths = Parser.paths(stdout);
+        console.log(paths);
+        return;
         results = [];
         for (i = 0, len = paths.length; i < len; i++) {
           path = paths[i];

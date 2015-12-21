@@ -118,6 +118,9 @@ class Flow
       # Get paths
       paths = Parser.paths stdout
 
+      console.log paths
+      return
+
       # Create ritual
       for path in paths
         ritual = Magic.combine [
