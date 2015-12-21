@@ -132,7 +132,7 @@ class Flow
 
   # Summon him for real - don't be scared...
   @daemon: () ->
-    log "\ndaemon: You summoned me?"
+    log "\ndaemon: you summoned me?"
     log "\n(Use ctrl-c to dismiss him)\n"
     Flow.runOnce()
     intervalFunction = setInterval () ->
