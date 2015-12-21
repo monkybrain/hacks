@@ -2,5 +2,5 @@
   "root": "~/Projects",
   "log": true,
   "state": "I'm on a roll...",
-  "interval": 1
+  "interval": 0.1
 }

@@ -1,6 +1,4 @@
-child = require "child_process"
-exec = child.exec
-spawn = child.spawn
+exec = require("child_process").exec
 args = require("yargs").argv._    # short hand for returning array of flagless arguments
 colors = require "colors"
 fs = require "fs"
