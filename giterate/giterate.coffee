@@ -62,7 +62,7 @@ Magic.cast Magic.spells.find, (err, stdout, stderr) ->
       # git: add all files
       Magic.spells.git.add
       # git: commit (with or without message)
-      Magic.spells.git.commit "To lazy to write a message"
+      Magic.spells.git.commit "Still hacking away at giterate"
       # git: pull
       Magic.spells.git.pull
       # git: push
