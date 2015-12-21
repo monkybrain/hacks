@@ -13,6 +13,7 @@
   "bin": {
     "giterate": "giterate.js"
   },
+  "preferGlobal": true,
   "author": "monkybrain",
   "license": "ISC",
   "dependencies": {
