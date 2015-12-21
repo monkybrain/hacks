@@ -146,7 +146,7 @@ class Flow
     config.state = args[1]
     # Write to file
     fs.writeFileSync 'giterate.json', JSON.stringify(config)
-    log "deamon: state set to \"#{config.state}\""
+    log "daemon: state set to \"#{config.state}\""
 
   @interval: () ->
     if not args[1]?
@@ -178,5 +178,5 @@ Flow.init().then(
 
 process.on 'SIGINT', () ->
   intervalFunction = null;
-  log "\ndaemon: I'l be back...\n"
+  log "\ndaemon: retreating to the netherworld...\n"
   process.exit()
