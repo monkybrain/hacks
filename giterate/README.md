@@ -38,8 +38,8 @@ Works
   -> giterate daemon
 ```
 
-### Config ###
-Edit giterate.json
+### giterate.json ###
+
 ```
 {
   "interval": 1,                # Interval between giterations in minutes
