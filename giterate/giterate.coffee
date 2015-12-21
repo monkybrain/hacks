@@ -157,6 +157,8 @@ class Flow
       # Write to file
       fs.writeFileSync 'giterate.json', JSON.stringify(config)
       log "daemon: interval set to \"#{config.interval}\""
+    catch err
+      error err.message
 
 
 
