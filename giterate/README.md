@@ -17,7 +17,7 @@ Works
 
 # 3) type 'giterate summon daemon' to commit, pull and push at interval specified in giterate.json
 
--> giterate summon daemon
+-> giterate daemon
 ```
 
 ### Config ###
