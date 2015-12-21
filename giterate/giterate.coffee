@@ -149,7 +149,14 @@ class Flow
     log "deamon: state set to \"#{config.state}\""
 
   @interval: () ->
-    log "To be implemented..."
+    if not args[1]?
+      error "\ndaemon: does the concept of time confuse you?\n"
+      return
+    try
+      config.interval = parseInt args[1]
+      # Write to file
+      fs.writeFileSync 'giterate.json', JSON.stringify(config)
+      log "daemon: interval set to \"#{config.interval}\""
 
 
 

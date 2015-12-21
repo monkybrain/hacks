@@ -171,7 +171,15 @@
     };
 
     Flow.interval = function() {
-      return log("To be implemented...");
+      if (args[1] == null) {
+        error("\ndaemon: does the concept of time confuse you?\n");
+        return;
+      }
+      try {
+        config.interval = parseInt(args[1]);
+        fs.writeFileSync('giterate.json', JSON.stringify(config));
+        return log("daemon: interval set to \"" + config.interval + "\"");
+      } catch (undefined) {}
     };
 
     return Flow;
