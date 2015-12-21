@@ -174,6 +174,7 @@
   });
 
   process.on('SIGINT', function() {
+    interval = null;
     return console.log("Exiting...");
   });
 
