@@ -170,7 +170,9 @@
       return log("deamon: state set to \"" + config.state + "\"");
     };
 
-    Flow.interval = function() {};
+    Flow.interval = function() {
+      return log("To be implemented...");
+    };
 
     return Flow;
 
@@ -184,7 +186,10 @@
       Flow.daemon();
     }
     if (this.command === 'state') {
-      return Flow.state();
+      Flow.state();
+    }
+    if (this.command === 'interval') {
+      return Flow.interval();
     }
   }, function() {
     return error("Aborted...");

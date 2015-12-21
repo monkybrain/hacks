@@ -149,6 +149,7 @@ class Flow
     log "deamon: state set to \"#{config.state}\""
 
   @interval: () ->
+    log "To be implemented..."
 
 
 
@@ -162,6 +163,8 @@ Flow.init().then(
       Flow.daemon()
     if @command is 'state'
       Flow.state()
+    if @command is 'interval'
+      Flow.interval()
   # Error
   () -> error "Aborted..."
 )
