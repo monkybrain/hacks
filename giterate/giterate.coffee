@@ -123,7 +123,7 @@ class Flow
 
         # Perform ritual for each project
         Magic.perform ritual, (err, stdout, stderr) ->
-          log "giterating: " + Date()
+          log "daemon: giterated at " + Date()
           # error stderr
           # log stdout
 

@@ -137,7 +137,7 @@
           path = paths[i];
           ritual = Magic.combine([Magic.spells.cd(path), Magic.spells.git.add, Magic.spells.git.commit(config.state), Magic.spells.git.pull, Magic.spells.git.push]);
           results.push(Magic.perform(ritual, function(err, stdout, stderr) {
-            return log("giterating: " + Date());
+            return log("daemon: giterated at " + Date());
           }));
         }
         return results;
