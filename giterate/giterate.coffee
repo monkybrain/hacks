@@ -133,7 +133,7 @@ class Flow
 
   @start: () ->
     log "\nDaemon has been summoned..."
-    log "\nUse ctrl-c to dismiss him"
+    log "\nUse ctrl-c to dismiss him\n"
     Flow.runOnce()
     interval = setInterval () ->
       Flow.runOnce()
