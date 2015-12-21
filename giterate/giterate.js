@@ -171,19 +171,16 @@
     };
 
     Flow.interval = function() {
-      var err, error1;
       if (args[1] == null) {
         error("\ndaemon: does the concept of time confuse you?\n");
         return;
       }
-      try {
-        config.interval = parseInt(args[1]);
-        fs.writeFileSync('giterate.json', JSON.stringify(config));
-        return log("daemon: interval set to \"" + config.interval + "\"");
-      } catch (error1) {
-        err = error1;
-        return error(err.message);
+      config.interval = parseInt(args[1]);
+      if (config.interval === NaN) {
+        return error("daemon: that's not right...");
       }
+      fs.writeFileSync('giterate.json', JSON.stringify(config));
+      return log("daemon: interval set to \"" + config.interval + "\"");
     };
 
     return Flow;
