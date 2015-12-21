@@ -88,13 +88,8 @@
       if (args.length === 0) {
         return 'run';
       } else {
-        if (args[0] != null) {
-          if (args[0] === 'summon' && args[1] === 'daemon') {
-            return 'summon';
-          }
-          if (args[0] === 'dismiss' && args[1] === 'daemon') {
-            return 'dismiss';
-          }
+        if ((args[0] != null) && args[0] === 'daemon') {
+          return 'daemon';
         }
       }
     };
@@ -149,7 +144,7 @@
       });
     };
 
-    Flow.start = function() {
+    Flow.daemon = function() {
       log("\nDaemon has been summoned...");
       log("\nUse ctrl-c to dismiss him\n");
       Flow.runOnce();
@@ -166,8 +161,8 @@
     if (this.command === 'run') {
       Flow.runOnce();
     }
-    if (this.command === 'summon') {
-      return Flow.start();
+    if (this.command === 'daemon') {
+      return Flow.daemon();
     }
   }, function() {
     return error("Aborted...");

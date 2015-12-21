@@ -64,7 +64,7 @@ class Parser
       return 'run'
     else
       # Not so elegant below...
-      if args[0]? and if args[0] is 'daemon' then return 'daemon'
+      if args[0]? and args[0] is 'daemon' then return 'daemon'
 
   @paths: (stdout) ->
 
