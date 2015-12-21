@@ -24,7 +24,7 @@ marker = () ->
 min2ms = (min) ->
   min * 60 * 1000
 
-# Introducing some (basic) *nix magic...
+# Introducing some (very basic) *nix magic...
 
 ### MAGIC ###
 class Magic
@@ -127,7 +127,7 @@ class Flow
           # error stderr
           # log stdout
 
-  # Summon him for real
+  # Summon him for real - don't be scared...
   @daemon: () ->
     log "\ndaemon: You summoned me?"
     log "\n(Use ctrl-c to dismiss him)\n"
