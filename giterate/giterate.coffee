@@ -150,5 +150,5 @@ Flow.init().then(
 
 process.on 'SIGINT', () ->
   interval = null;
-  log "\nI'l be back...\n"
+  log "\ndaemon: I'l be back...\n"
   process.exit()

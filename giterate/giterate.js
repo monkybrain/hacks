@@ -170,7 +170,7 @@
 
   process.on('SIGINT', function() {
     interval = null;
-    log("\nI'l be back...\n");
+    log("\ndaemon: I'l be back...\n");
     return process.exit();
   });
 
