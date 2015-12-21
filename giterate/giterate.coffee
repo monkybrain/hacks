@@ -160,8 +160,6 @@ class Flow
     fs.writeFileSync 'giterate.json', JSON.stringify(config)
     log "daemon: interval set to \"#{config.interval}\""
 
-
-
 # Init
 Flow.init().then(
   # Run
