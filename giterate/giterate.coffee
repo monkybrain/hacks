@@ -132,7 +132,7 @@ class Flow
 
   # Summon him for real - don't be scared...
   @daemon: () ->
-    log "\ndaemon: you summoned me?"
+    log "\ndaemon: You summoned me?"
     log "\n(Use ctrl-c to dismiss him)\n"
     Flow.runOnce()
     intervalFunction = setInterval () ->
@@ -178,5 +178,5 @@ Flow.init().then(
 
 process.on 'SIGINT', () ->
   intervalFunction = null;
-  log "\ndaemon: retreating to the netherworld...\n"
+  log "\ndaemon: Ok, retreating to the netherworld...\n"
   process.exit()
