@@ -63,10 +63,11 @@ Magic.cast Magic.spells.find, (err, stdout, stderr) ->
       Magic.spells.git.add
       # git: commit (with or without message)
       Magic.spells.git.commit "To lazy to write a message"
+      # git: pull
+      Magic.spells.git.pull
       # git: push
       Magic.spells.git.push
     ]
     log ritual
-    
     Magic.perform ritual, (err, stdout, stderr) ->
       log stdout

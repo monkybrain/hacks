@@ -77,7 +77,7 @@
     results = [];
     for (i = 0, len = paths.length; i < len; i++) {
       path = paths[i];
-      ritual = Magic.combine([Magic.spells.cd(path), Magic.spells.git.add, Magic.spells.git.commit("To lazy to write a message"), Magic.spells.git.push]);
+      ritual = Magic.combine([Magic.spells.cd(path), Magic.spells.git.add, Magic.spells.git.commit("To lazy to write a message"), Magic.spells.git.pull, Magic.spells.git.push]);
       log(ritual);
       results.push(Magic.perform(ritual, function(err, stdout, stderr) {
         return log(stdout);
