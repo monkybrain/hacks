@@ -166,9 +166,11 @@
   })();
 
   Flow.init().then(function() {
-    log(this.command);
     if (this.command === 'run') {
-      return Flow.runOnce();
+      Flow.runOnce();
+    }
+    if (this.command === 'summon') {
+      return Flow.start();
     }
   }, function() {
     return error("Aborted...");

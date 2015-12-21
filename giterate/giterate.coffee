@@ -144,10 +144,10 @@ class Flow
 Flow.init().then(
   # Run
   () ->
-    log @command
     if @command is 'run'
       Flow.runOnce()
-    # if Flow.command is 'summon daemon' then Flow.start()
+    if @command is 'summon'
+      Flow.start()
   # Error
   () -> error "Aborted..."
 )
