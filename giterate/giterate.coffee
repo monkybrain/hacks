@@ -178,5 +178,5 @@ Flow.init().then(
 
 process.on 'SIGINT', () ->
   intervalFunction = null;
-  log "\ndaemon: Ok, retreating to the netherworld...\n"
+  log "\ndaemon: ok, retreating to the netherworld...\n"
   process.exit()
