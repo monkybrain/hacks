@@ -6,7 +6,7 @@ Promise = require "promise"
 
 # Config object
 config = {}
-interval = null
+intervalFunction = null
 
 # Gotta have these helpers...
 log = (output) ->
@@ -135,7 +135,7 @@ class Flow
     log "\ndaemon: You summoned me?"
     log "\n(Use ctrl-c to dismiss him)\n"
     Flow.runOnce()
-    interval = setInterval () ->
+    intervalFunction = setInterval () ->
       Flow.runOnce()
     , min2ms(config.interval)
 
@@ -147,6 +147,8 @@ class Flow
     # Write to file
     fs.writeFileSync 'giterate.json', JSON.stringify(config)
     log "deamon: state set to \"#{config.state}\""
+
+  @interval: () ->
 
 
 
@@ -165,6 +167,6 @@ Flow.init().then(
 )
 
 process.on 'SIGINT', () ->
-  interval = null;
+  intervalFunction = null;
   log "\ndaemon: I'l be back...\n"
   process.exit()
