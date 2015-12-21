@@ -65,7 +65,7 @@ class Parser
     # Not so elegant below...
     if args[0]?
       if args[0] is 'daemon' then return 'daemon'
-      if args[0] is 'state' and args[2]? then return 'state'
+      if args[0] is 'state' then return 'state'
 
 
   @paths: (stdout) ->

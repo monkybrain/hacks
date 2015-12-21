@@ -92,7 +92,7 @@
         if (args[0] === 'daemon') {
           return 'daemon';
         }
-        if (args[0] === 'state' && (args[2] != null)) {
+        if (args[0] === 'state') {
           return 'state';
         }
       }
