@@ -87,9 +87,13 @@
     Parser.commands = function(args) {
       if (args.length === 0) {
         return 'run';
-      } else {
-        if ((args[0] != null) && args[0] === 'daemon') {
+      }
+      if (args[0] != null) {
+        if (args[0] === 'daemon') {
           return 'daemon';
+        }
+        if (args[0] === 'state' && (args[2] != null)) {
+          return 'state';
         }
       }
     };
@@ -153,7 +157,11 @@
       }, min2ms(config.interval));
     };
 
-    Flow.state = function() {};
+    Flow.state = function() {
+      var state;
+      state = args[1];
+      return log(state);
+    };
 
     return Flow;
 
@@ -164,7 +172,10 @@
       Flow.runOnce();
     }
     if (this.command === 'daemon') {
-      return Flow.daemon();
+      Flow.daemon();
+    }
+    if (this.command === 'state') {
+      return Flow.state();
     }
   }, function() {
     return error("Aborted...");

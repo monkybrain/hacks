@@ -62,9 +62,11 @@ class Parser
     # if no command -> run once
     if args.length is 0
       return 'run'
-    else
-      # Not so elegant below...
-      if args[0]? and args[0] is 'daemon' then return 'daemon'
+    # Not so elegant below...
+    if args[0]?
+      if args[0] is 'daemon' then return 'daemon'
+      if args[0] is 'state' and args[2]? then return 'state'
+
 
   @paths: (stdout) ->
 
@@ -137,6 +139,8 @@ class Flow
     , min2ms(config.interval)
 
   @state: () ->
+    state = args[1]
+    log state
 
 
 # Init
@@ -147,6 +151,8 @@ Flow.init().then(
       Flow.runOnce()
     if @command is 'daemon'
       Flow.daemon()
+    if @command is 'state'
+      Flow.state()
   # Error
   () -> error "Aborted..."
 )
