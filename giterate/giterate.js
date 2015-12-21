@@ -120,9 +120,8 @@
     function Flow() {}
 
     Flow.init = function() {
-      this.running = false;
       return new Promise(function(resolve, reject) {
-        var command, data, err, error1;
+        var data, err, error1;
         try {
           data = fs.readFileSync('giterate.json', 'utf8');
         } catch (error1) {
@@ -131,13 +130,7 @@
           reject();
         }
         config = JSON.parse(data);
-        command = Parser.commands(args);
-        if (command === 'run') {
-          Flow.runOnce();
-        }
-        if (command === 'summon') {
-          Flow.start();
-        }
+        this.command = Parser.commands(args);
         return resolve();
       });
     };
@@ -160,14 +153,12 @@
     };
 
     Flow.start = function() {
-      Flow.running = true;
       log("\nDaemon has been summoned...");
       log("\nUse ctrl-c to dismiss him");
+      Flow.runOnce();
       return setInterval(function() {
-        if (Flow.running) {
-          return Flow.runOnce();
-        }
-      }, min2ms(config.interval / 4));
+        return Flow.runOnce();
+      }, min2ms(config.interval));
     };
 
     return Flow;
@@ -175,7 +166,10 @@
   })();
 
   Flow.init().then(function() {
-    return Flow.run();
+    log(this.command);
+    if (this.command === 'run') {
+      return Flow.runOnce();
+    }
   }, function() {
     return error("Aborted...");
   });

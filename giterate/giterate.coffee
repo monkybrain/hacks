@@ -85,8 +85,6 @@ class Flow
 
   @init: () ->
 
-    @running = false
-
     new Promise (resolve, reject) ->
       try
         data = fs.readFileSync 'giterate.json', 'utf8'
@@ -100,12 +98,7 @@ class Flow
       # marker()
 
       # get command
-      command = Parser.commands args
-
-      if command is 'run'
-        Flow.runOnce()
-      if command is 'summon'
-        Flow.start()
+      @command = Parser.commands args
 
       resolve()
 
@@ -139,18 +132,22 @@ class Flow
           log stdout
 
   @start: () ->
-    Flow.running = true
     log "\nDaemon has been summoned..."
     log "\nUse ctrl-c to dismiss him"
+    Flow.runOnce()
     setInterval () ->
-      if Flow.running then Flow.runOnce()
-    , min2ms(config.interval / 4)
+      Flow.runOnce()
+    , min2ms(config.interval)
 
 
 # Init
 Flow.init().then(
   # Run
-  () -> Flow.run()
+  () ->
+    log @command
+    if @command is 'run'
+      Flow.runOnce()
+    # if Flow.command is 'summon daemon' then Flow.start()
   # Error
   () -> error "Aborted..."
 )
