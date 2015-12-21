@@ -7,27 +7,27 @@ Works
 
 ### Use ###
 ```
-
 # 1) Make sure you have installed nodejs and npm
 
-# 2) Install dependencies by typein 'npm install' in root folder
--> npm install 
+# 2) Install dependencies
 
-# 3) Set alias (will fix proper bin link later...)
+  -> npm install
 
--> alias giterate="node giterate.js"
+# 3) Add a .giterate file to the root of all project folders you want to include.
 
-# 2) Add a .giterate file to the root of your project folder.
+  -> touch .giterate
 
--> touch .giterate
+# 4) Set alias (will fix proper bin link later...)
 
-# 3) type 'giterate' to commit, pull and push to remote ONCE
+  -> alias giterate="node giterate.js"
 
--> giterate
+# 5) type 'giterate' to commit, pull and push to remote ONCE
 
-# 4) type 'giterate daemon' to commit, pull and push at interval specified in giterate.json
+  -> giterate
 
--> giterate daemon
+# 6) type 'giterate daemon' to commit, pull and push at interval specified in giterate.json
+
+  -> giterate daemon
 ```
 
 ### Config ###
