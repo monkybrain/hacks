@@ -40,7 +40,7 @@ class Magic
       commit: (message) ->
         "git commit -a -m \"#{message}\""
       push: "git push -u --all"
-      pull: "git pull --all"
+      pull: "git pull -u --all"
       status: "git status"
     timerTest: "while true; do echo 'test'; sleep 5; done"
 
