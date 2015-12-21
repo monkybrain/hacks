@@ -64,7 +64,7 @@ class Parser
       return 'run'
     else
       # Not so elegant below...
-      if args[0]? and args[1]?
+      if args[0]?
         if args[0] is 'summon' and args[1] is 'daemon'
           return 'summon'
         if args[0] is 'dismiss' and args[1] is 'daemon'

@@ -88,7 +88,7 @@
       if (args.length === 0) {
         return 'run';
       } else {
-        if ((args[0] != null) && (args[1] != null)) {
+        if (args[0] != null) {
           if (args[0] === 'summon' && args[1] === 'daemon') {
             return 'summon';
           }
