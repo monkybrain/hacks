@@ -89,9 +89,13 @@
       if (args.length === 0) {
         return 'run';
       } else {
-        if (args.length > 1) {
-          log("fisk");
-          return args[0] + args[1];
+        if ((args[0] != null) && (args[1] != null)) {
+          if (args[0] === 'summon' && args[1] === 'daemon') {
+            return 'summon';
+          }
+          if (args[0] === 'dismiss' && args[1] === 'daemon') {
+            return 'dismiss';
+          }
         }
       }
     };
@@ -116,7 +120,7 @@
 
     Flow.init = function() {
       return new Promise(function(resolve, reject) {
-        var data, err, error1;
+        var command, data, err, error1;
         try {
           data = fs.readFileSync('giterate.json', 'utf8');
         } catch (error1) {
@@ -126,12 +130,18 @@
         }
         config = JSON.parse(data);
         marker();
-        log(Parser.commands(args));
+        command = Parser.commands(args);
+        if (command === 'run') {
+          Flow.runOnce();
+        }
+        if (command === 'summon') {
+          Flow.start();
+        }
         return resolve();
       });
     };
 
-    Flow.run = function() {
+    Flow.runOnce = function() {
       return Magic.cast(Magic.spells.find(config.root), function(err, stdout, stderr) {
         var i, len, path, paths, results, ritual;
         paths = Parser.paths(stdout);
@@ -146,6 +156,10 @@
         }
         return results;
       });
+    };
+
+    Flow.start = function() {
+      return log("fisk");
     };
 
     return Flow;

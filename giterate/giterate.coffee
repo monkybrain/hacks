@@ -63,9 +63,12 @@ class Parser
     if args.length is 0
       return 'run'
     else
-      if args.length > 1
-        log "fisk"
-        return args[0] + args[1]
+      # Not so elegant below...
+      if args[0]? and args[1]?
+        if args[0] is 'summon' and args[1] is 'daemon'
+          return 'summon'
+        if args[0] is 'dismiss' and args[1] is 'daemon'
+          return 'dismiss'
 
   @paths: (stdout) ->
 
@@ -93,12 +96,17 @@ class Flow
       marker()
 
       # get command
-      log Parser.commands args
+      command = Parser.commands args
+
+      if command is 'run'
+        Flow.runOnce()
+      if command is 'summon'
+        Flow.start()
 
       resolve()
 
-  # Run #
-  @run: () ->
+  # Run - jolt the daemon #
+  @runOnce: () ->
 
     # Cast first spell : find project folders #
     Magic.cast Magic.spells.find(config.root), (err, stdout, stderr) ->
@@ -125,6 +133,10 @@ class Flow
         Magic.perform ritual, (err, stdout, stderr) ->
           error stderr
           log stdout
+
+  @start: () ->
+    log "fisk"
+
 
 # Init
 Flow.init().then(
