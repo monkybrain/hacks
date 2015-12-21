@@ -8,7 +8,7 @@
 
   config = {
     root: "~/Projects",
-    log: false
+    log: true
   };
 
   log = function(output) {
@@ -18,7 +18,9 @@
   };
 
   error = function(error) {
-    return console.error(error.toString().red);
+    if (config.log) {
+      return console.error(error.toString().red);
+    }
   };
 
   h = "got here";
@@ -91,6 +93,7 @@
       path = paths[i];
       ritual = Magic.combine([Magic.spells.cd(path), Magic.spells.git.add, Magic.spells.git.commit("Still hacking away at giterate"), Magic.spells.git.pull, Magic.spells.git.push]);
       results.push(Magic.perform(ritual, function(err, stdout, stderr) {
+        error(stderr);
         return log(stdout);
       }));
     }

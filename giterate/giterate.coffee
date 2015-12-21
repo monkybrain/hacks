@@ -4,7 +4,7 @@ colors = require "colors"
 # TODO: Load from config file
 config =
   root: "~/Projects"
-  log: false
+  log: true
 
 # Gotta have these helpers...
 log = (output) ->
@@ -12,7 +12,8 @@ log = (output) ->
     console.log output.toString().green
 
 error = (error) ->
-  console.error error.toString().red
+  if config.log
+    console.error error.toString().red
 
 # Do you really think I have time to type these eight characters every other minute?
 h = "got here"
@@ -80,4 +81,5 @@ Magic.cast Magic.spells.find, (err, stdout, stderr) ->
       Magic.spells.git.push
     ]
     Magic.perform ritual, (err, stdout, stderr) ->
+      error stderr
       log stdout
