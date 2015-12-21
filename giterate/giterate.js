@@ -159,9 +159,12 @@
 
     Flow.state = function() {
       var state;
-      log("state");
       state = args[1];
-      return log(state);
+      log(state);
+      if (state === null) {
+        return log("daemon: devoid of meaning, are we?");
+      }
+      return log('fisk');
     };
 
     return Flow;

@@ -139,9 +139,11 @@ class Flow
     , min2ms(config.interval)
 
   @state: () ->
-    log "state"
     state = args[1]
     log state
+    if state is null
+      return log "daemon: devoid of meaning, are we?"
+    log 'fisk'
 
 
 # Init
