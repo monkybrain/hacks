@@ -8,7 +8,7 @@
 
   config = {
     root: "~/Projects",
-    log: true
+    log: false
   };
 
   log = function(output) {

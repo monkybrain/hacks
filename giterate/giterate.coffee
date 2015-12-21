@@ -4,7 +4,7 @@ colors = require "colors"
 # TODO: Load from config file
 config =
   root: "~/Projects"
-  log: true
+  log: false
 
 # Gotta have these helpers...
 log = (output) ->
