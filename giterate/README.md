@@ -3,7 +3,7 @@
 rapid, automatic git iterations
 
 ### status ###
-Works 
+Works (at least for me...) but still very much a hack
 
 ### Use ###
 ```
@@ -25,7 +25,7 @@ Works
   
   -> giterate interval 5
   
-# Set state (inside single or double quotes"
+# Set current state of mind (inside single or double quotes)
   
   -> giterate state "I'm on a roll"
 
