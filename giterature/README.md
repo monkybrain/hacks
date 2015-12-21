@@ -8,7 +8,7 @@ Uses [giterate](https://github.com/monkybrain/giterate) (as in 'iterate') to con
 
 &#35;&#35;&#35; Experimenting with a new dogma, like dogme 95 for film in the 90s. Still working on it. Please contribute! &#35;&#35;&#35;
 
-* Rapid iterations (with giterate or other similar tool)
+* Rapid iterations (with [giterate](https://github.com/monkybrain/giterate) or similar tool)
 * Radical openness
 * Open source tools only
 * Markdown editor is enough (no fancy word processors needed)
