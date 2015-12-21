@@ -142,7 +142,7 @@ Flow.init().then(
   () ->
     if @command is 'run'
       Flow.runOnce()
-    if @command is 'summon'
+    if @command is 'daemon'
       Flow.start()
   # Error
   () -> error "Aborted..."
