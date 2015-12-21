@@ -154,7 +154,7 @@ class Flow
       return
 
     config.interval = parseInt args[1]
-    if config.interval is NaN then return error "daemon: that's not right..."
+    if isNaN config.interval then return error "daemon: that's not right..."
 
     # Write to file
     fs.writeFileSync 'giterate.json', JSON.stringify(config)

@@ -176,7 +176,7 @@
         return;
       }
       config.interval = parseInt(args[1]);
-      if (config.interval === NaN) {
+      if (isNaN(config.interval)) {
         return error("daemon: that's not right...");
       }
       fs.writeFileSync('giterate.json', JSON.stringify(config));
