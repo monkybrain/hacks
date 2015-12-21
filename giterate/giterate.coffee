@@ -154,5 +154,5 @@ Flow.init().then(
 
 process.on 'SIGINT', () ->
   interval = null;
-  console.log "Exiting..."
+  console.log "\nI'l be back...\n"
   process.exit()

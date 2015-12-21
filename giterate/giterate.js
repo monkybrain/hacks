@@ -175,7 +175,7 @@
 
   process.on('SIGINT', function() {
     interval = null;
-    console.log("Exiting...");
+    console.log("\nI'l be back...\n");
     return process.exit();
   });
 
