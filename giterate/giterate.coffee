@@ -128,8 +128,9 @@ class Flow
 
         # Perform ritual for each project
         Magic.perform ritual, (err, stdout, stderr) ->
-          error stderr
-          log stdout
+          log "giterating..."
+          # error stderr
+          # log stdout
 
   @start: () ->
     log "\nDaemon has been summoned..."
