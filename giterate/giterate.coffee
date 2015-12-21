@@ -1,4 +1,7 @@
-exec = require("child_process").exec
+child = require "child_process"
+exec = child.exec
+spawn = child.spawn
+argv = require("yargs").argv
 colors = require "colors"
 fs = require "fs"
 Promise = require "promise"
@@ -16,8 +19,11 @@ error = (error) ->
     console.error error.toString().red
 
 # Do you really think I have time to type these eight characters every other minute?
-h = "got here"
+marker = () ->
+  log "got here"
 
+min2ms = (min) ->
+  min * 60 * 1000
 
 # Introducing some (basic) *nix magic...
 
@@ -61,9 +67,6 @@ class Parser
     paths.map (path) ->
       path = path.slice 0, path.lastIndexOf "/"
 
-### RUN ###
-
-
 ### Flow ###
 class Flow
 
@@ -76,6 +79,10 @@ class Flow
         reject()
 
       config = JSON.parse data
+
+      # lay down a...
+      marker()
+
       resolve()
 
   # Run #
