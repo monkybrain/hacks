@@ -1,0 +1,54 @@
+# PseudoScript
+
+sjön = [
+    {art: 'gös', vikt: 1.3, insjöfisk: ja, rutten: ja}
+    {art: 'aborre', vikt: 0.8, insjöfisk: ja, rutten: nej},
+    {art: 'gädda', vikt: 3.2, insjöfisk: nej, rutten: nej}
+]
+
+för varje fisk i sjön
+
+  # kinda pseudo
+  skriv ut ingenting
+  skriv ut fisk.art
+
+  # pseudo++
+  visa fiskens vikt
+
+  # conditions
+  om fiskens vikt överstiger 1
+    meddela "Stor fisk"
+  annars
+    meddela "Liten fisk"
+
+  om fisken är rutten så meddela "Släng den!" annars meddela "Spisa med behag!"
+
+# Functions
+begränsa = (vikt, max) ->
+  om vikt överstiger max
+      svara med 3
+  annars
+      svara med vikt
+
+fisk =
+    art: 'torsk'
+    vikt: 4
+
+<tom rad>
+visa resultatet av att begränsa fiskens vikt till 3
+visa fiskens vikt multiplicerat med två plus tre
+
+temperaturen = 24
+väder =
+    fint: ja
+    varmt: om temperaturen överstiger 20 så ja annars nej
+
+visa "Väderrapport: "
+om vädret är fint och vädret är varmt så meddela "Ut och njut i solen!" annars meddela "Nog bäst att stanna inne idag."
+
+###
+kastade = 'Kjell'
+visa "vem var det som kasta?"
+visa vem som kastade
+###
+

@@ -1,0 +1,8 @@
+Problems:
+* replaces inside strings "Got to be fixed"
+
+Fix:
+* don't parse comments
+
+Fixed:
+* only does on replace per line

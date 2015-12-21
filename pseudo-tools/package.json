@@ -1,0 +1,23 @@
+{
+  "name": "pseudo-tools",
+  "version": "0.0.1",
+  "description": "The new sudo",
+  "main": "pseudo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sudo"
+  ],
+  "bin": {
+    "pseudo": "node pseudo-tools"
+  },
+  "author": "Philip Prophet",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "exec": "^0.2.1",
+    "shelljs": "^0.5.3",
+    "yargs": "^3.31.0"
+  }
+}

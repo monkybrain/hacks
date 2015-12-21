@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/pseudoscript/test/fisk.js" />
+        <item url="file://$PROJECT_DIR$/pseudoscript/src/pseudo.js" />
+        <item url="file://$PROJECT_DIR$/pseudoscript/test/raw.js" />
+        <item url="file://$PROJECT_DIR$/pseudoscript/test/fish.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/coffee-translate/dictionaries/svenska.js" />
+      <root url="file://$PROJECT_DIR$/coffee-translate/dictionaries/svenska.js" />
+      <root url="file://$PROJECT_DIR$/pseudoscript/src/test.js" />
+      <root url="file://$PROJECT_DIR$/pseudoscript/src/test.js" />
+      <root url="file://$PROJECT_DIR$/pseudoscript/test/raw.js" />
+      <root url="file://$PROJECT_DIR$/pseudoscript/test/fisk.js" />
+      <root url="file://$PROJECT_DIR$/pseudoscript/src/pseudo.js" />
+      <root url="file://$PROJECT_DIR$/pseudoscript/test/raw.js" />
+      <root url="file://$PROJECT_DIR$/pseudoscript/test/fish.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

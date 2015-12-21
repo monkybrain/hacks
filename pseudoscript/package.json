@@ -1,0 +1,25 @@
+{
+  "name": "pseudoscript",
+  "version": "0.0.1",
+  "description": "Pseudo code transpiler for CoffeeScript/JavaScript",
+  "main": "src/precompiler.js",
+  "scripts": {
+    "start": "node src/pseudo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "pseudo": "hacks/parser.coffee"
+  },
+  "keywords": [
+    "coffeescript",
+    "transpiler",
+    "pseudo",
+    "pseudo code"
+  ],
+  "author": "Philip Prophet",
+  "license": "ISC",
+  "dependencies": {
+    "linebyline": "^1.2.1",
+    "yargs": "^3.31.0"
+  }
+}
