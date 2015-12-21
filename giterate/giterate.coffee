@@ -127,8 +127,7 @@ class Flow
 
         # Perform ritual for each project
         Magic.perform ritual, (err, stdout, stderr) ->
-          log Date()
-          log "giterating..."
+          log "giterating: " + Date()
           # error stderr
           # log stdout
 
