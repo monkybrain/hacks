@@ -1,6 +1,6 @@
 {
-  "root": "~/Projects",
+  "interval": 1,
   "log": true,
-  "state": "I'm on a roll...",
-  "interval": 1
+  "root": "~/Projects",
+  "state": "This actually works now..."
 }
