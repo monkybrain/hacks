@@ -146,7 +146,7 @@
 
     Flow.daemon = function() {
       log("\ndaemon: You summoned me?");
-      log("\nUse ctrl-c to dismiss him\n");
+      log("\n(Use ctrl-c to dismiss him)\n");
       Flow.runOnce();
       return interval = setInterval(function() {
         return Flow.runOnce();
