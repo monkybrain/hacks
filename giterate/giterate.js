@@ -95,6 +95,9 @@
         if (args[0] === 'state') {
           return 'state';
         }
+        if (args[0] === 'interval') {
+          return 'interval';
+        }
       }
     };
 

@@ -66,6 +66,7 @@ class Parser
     if args[0]?
       if args[0] is 'daemon' then return 'daemon'
       if args[0] is 'state' then return 'state'
+      if args[0] is 'interval' then return 'interval'
 
 
   @paths: (stdout) ->
