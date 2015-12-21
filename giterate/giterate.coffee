@@ -152,5 +152,5 @@ Flow.init().then(
   () -> error "Aborted..."
 )
 
-process.on 'exit', () ->
+process.on 'SIGINT', () ->
   console.log "Exiting..."

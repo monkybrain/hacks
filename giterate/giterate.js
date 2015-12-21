@@ -173,7 +173,7 @@
     return error("Aborted...");
   });
 
-  process.on('exit', function() {
+  process.on('SIGINT', function() {
     return console.log("Exiting...");
   });
 
