@@ -159,9 +159,12 @@
 
     Flow.state = function() {
       var state;
-      state = args[1] != null ? args[1] : "daemon: empty inside, are we?";
-      log(state);
-      return log('fisk');
+      if (args[1] == null) {
+        error("\ndaemon: empty inside, are we?\n");
+        return;
+      }
+      state = args[1];
+      return log(state);
     };
 
     return Flow;
