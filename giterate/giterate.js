@@ -51,7 +51,7 @@
       find: function(root) {
         return "find " + root + " -name .giterate -prune";
       },
-      test: "ls -la",
+      list: "ls -la",
       git: {
         add: "git add .",
         commit: function(message) {
@@ -60,7 +60,8 @@
         push: "git push -u --all",
         pull: "git pull --all",
         status: "git status"
-      }
+      },
+      timerTest: "while true; do echo 'test'; sleep 5; done"
     };
 
     Magic.combine = function(array) {
@@ -119,6 +120,7 @@
     function Flow() {}
 
     Flow.init = function() {
+      this.running = false;
       return new Promise(function(resolve, reject) {
         var command, data, err, error1;
         try {
@@ -129,7 +131,6 @@
           reject();
         }
         config = JSON.parse(data);
-        marker();
         command = Parser.commands(args);
         if (command === 'run') {
           Flow.runOnce();
@@ -159,7 +160,14 @@
     };
 
     Flow.start = function() {
-      return log("fisk");
+      Flow.running = true;
+      log("\nDaemon has been summoned...");
+      log("\nUse ctrl-c to dismiss him");
+      return setInterval(function() {
+        if (Flow.running) {
+          return Flow.runOnce();
+        }
+      }, min2ms(config.interval / 4));
     };
 
     return Flow;

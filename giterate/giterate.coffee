@@ -35,7 +35,7 @@ class Magic
       "cd #{dir}"
     find: (root) ->
       "find #{root} -name .giterate -prune"
-    test: "ls -la"
+    list: "ls -la"
     git:
       add: "git add ."
       commit: (message) ->
@@ -43,6 +43,7 @@ class Magic
       push: "git push -u --all"
       pull: "git pull --all"
       status: "git status"
+    timerTest: "while true; do echo 'test'; sleep 5; done"
 
   @combine: (array) ->
     array.join " && "
@@ -83,6 +84,9 @@ class Parser
 class Flow
 
   @init: () ->
+
+    @running = false
+
     new Promise (resolve, reject) ->
       try
         data = fs.readFileSync 'giterate.json', 'utf8'
@@ -93,7 +97,7 @@ class Flow
       config = JSON.parse data
 
       # lay down a...
-      marker()
+      # marker()
 
       # get command
       command = Parser.commands args
@@ -135,7 +139,12 @@ class Flow
           log stdout
 
   @start: () ->
-    log "fisk"
+    Flow.running = true
+    log "\nDaemon has been summoned..."
+    log "\nUse ctrl-c to dismiss him"
+    setInterval () ->
+      if Flow.running then Flow.runOnce()
+    , min2ms(config.interval / 4)
 
 
 # Init
