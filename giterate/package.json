@@ -11,7 +11,7 @@
     "commit"
   ],
   "bin": {
-    "giterate": "giterate"
+    "giterate": "giterate.js"
   },
   "author": "monkybrain",
   "license": "ISC",
