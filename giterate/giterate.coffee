@@ -136,6 +136,8 @@ class Flow
       Flow.runOnce()
     , min2ms(config.interval)
 
+  @state: () ->
+
 
 # Init
 Flow.init().then(

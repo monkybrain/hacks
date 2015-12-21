@@ -153,6 +153,8 @@
       }, min2ms(config.interval));
     };
 
+    Flow.state = function() {};
+
     return Flow;
 
   })();
