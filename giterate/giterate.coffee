@@ -6,6 +6,7 @@ Promise = require "promise"
 
 # Config object
 config = {}
+interval = null
 
 # Gotta have these helpers...
 log = (output) ->
@@ -134,7 +135,7 @@ class Flow
     log "\nDaemon has been summoned..."
     log "\nUse ctrl-c to dismiss him"
     Flow.runOnce()
-    setInterval () ->
+    interval = setInterval () ->
       Flow.runOnce()
     , min2ms(config.interval)
 
@@ -150,3 +151,6 @@ Flow.init().then(
   # Error
   () -> error "Aborted..."
 )
+
+process.on 'exit', () ->
+  log "Exiting..."
