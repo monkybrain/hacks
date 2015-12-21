@@ -150,10 +150,7 @@
         for (i = 0, len = paths.length; i < len; i++) {
           path = paths[i];
           ritual = Magic.combine([Magic.spells.cd(path), Magic.spells.git.add, Magic.spells.git.commit(config.state), Magic.spells.git.pull, Magic.spells.git.push]);
-          results.push(Magic.perform(ritual, function(err, stdout, stderr) {
-            error(stderr);
-            return log(stdout);
-          }));
+          results.push(Magic.perform(ritual, function(err, stdout, stderr) {}));
         }
         return results;
       });
