@@ -153,4 +153,4 @@ Flow.init().then(
 )
 
 process.on 'exit', () ->
-  log "Exiting..."
+  console.log "Exiting..."

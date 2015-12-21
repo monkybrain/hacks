@@ -174,7 +174,7 @@
   });
 
   process.on('exit', function() {
-    return log("Exiting...");
+    return console.log("Exiting...");
   });
 
 }).call(this);
