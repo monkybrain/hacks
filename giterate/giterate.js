@@ -56,7 +56,7 @@
           return "git commit -a -m \"" + message + "\"";
         },
         push: "git push -u --all",
-        pull: "git pull --all",
+        pull: "git pull -u --all",
         status: "git status"
       },
       timerTest: "while true; do echo 'test'; sleep 5; done"
@@ -167,7 +167,7 @@
       }
       config.state = args[1];
       fs.writeFileSync('giterate.json', JSON.stringify(config));
-      return log("deamon: state set to \"" + config.state + "\"");
+      return log("daemon: state set to \"" + config.state + "\"");
     };
 
     Flow.interval = function() {
@@ -206,7 +206,7 @@
 
   process.on('SIGINT', function() {
     intervalFunction = null;
-    log("\ndaemon: I'l be back...\n");
+    log("\ndaemon: ok, retreating to the netherworld...\n");
     return process.exit();
   });
 

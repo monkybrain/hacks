@@ -1,27 +1,64 @@
-class Universe
+# Paths
+paths =
+  dictionary: "./dictionary"
+  map: "./map"
 
-  contains: []
+# Imports
+map = require paths.map
+dictionary = require paths.dictionary
+Parser = require "./parser"
 
-class Noun extends Universe
+# helpers
+log = (info) ->
+  console.log info
 
-  set: (property, value) ->
 
-  get: (property, value) ->
+parser = new Parser(map, dictionary)
 
-  containedIn: []
+pseudoLines = [
+  "let there be a room"
+  "create another room called 'bedroom'"
+  "add a light to the room"
+]
+coffeeLines = pseudoLines.map (line) ->
+  parser.parse line
 
-class Light extends Noun
+console.log parser.wrap(coffeeLines, pseudoLines, paths.map)
 
-  state:
-    'on': false
-    'brightness': 45
 
-  property:
-    'color': null
+# pseudoString = "let there be a room"
+#parser.parse pseudoString
+#pseudoString = "in that room"
+#parser.parse pseudoString
+return
 
-l = new Light()
 
-console.log l.state.on
+# Always start with new universe
+
+# pseudo: let there be light
+u = new Universe()
+
+###
+# pseudo: let there be a room called "bedroom"
+u.add new Room "bedroom"
+# pseudo: let there be a room called "living room"
+u.add new Room "bedroom"
+###
+
+
+log "\nUniverse contains:"
+log u.contains
+log "\nCurrent scope:"
+log u.scope
+
+
+###
+
+u.contains.push(new Light())
+log u.contains
+###
+
+
 
 # scopes
 # top scope: universe
